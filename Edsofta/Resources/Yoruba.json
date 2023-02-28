@@ -1,0 +1,142 @@
+[
+    {
+        "id": 1,
+        "question": "This Is Yoruba",
+        "a": "Goat",
+        "b": "Lion",
+        "c": "Bear",
+        "d": "Leopard",
+        "e": "Tiger",
+        "answer": "Goat"
+    },
+    {
+        "id": 2,
+        "question": "This is Yoruba 2",
+        "a": "Apple Cidar",
+        "b": "Egg",
+        "c": "Yam",
+        "d": "Orange",
+        "e": "Fish",
+        "answer": "orange"
+    },
+    {
+        "id": 3,
+        "question": "The Correct Answer is D",
+        "a": "incorrect",
+        "b": "Incorrect",
+        "c": "Incorrect",
+        "d": "Correct",
+        "e": "Incorrect",
+        "answer": "Correct"
+    },
+    {
+        "id": 4,
+        "question": "Which of these is not a wild animal ?",
+        "a": "Goat",
+        "b": "Lion",
+        "c": "Bear",
+        "d": "Leopard",
+        "e": "Tiger",
+        "answer": "Goat"
+    },
+    {
+        "id": 5,
+        "question": "Which of these is a fruit ?",
+        "a": "Apple Cidar",
+        "b": "Egg",
+        "c": "Yam",
+        "d": "Orange",
+        "e": "Fish",
+        "answer": "Orange"
+    },
+    {
+        "id": 6,
+        "question": "The Correct Answer is D",
+        "a": "incorrect",
+        "b": "Incorrect",
+        "c": "Incorrect",
+        "d": "Correct",
+        "e": "Incorrect",
+        "answer": "Correct"
+    },
+    {
+        "id": 7,
+        "question": "Which of these is not a wild animal ?",
+        "a": "Goat",
+        "b": "Lion",
+        "c": "Bear",
+        "d": "Leopard",
+        "e": "Tiger",
+        "answer": "Goat"
+    },
+    {
+        "id": 8,
+        "question": "Which of these is a fruit ?",
+        "a": "Apple Cidar",
+        "b": "Egg",
+        "c": "Yam",
+        "d": "Orange",
+        "e": "Fish",
+        "answer": "Orange"
+    },
+    {
+        "id": 9,
+        "question": "The Correct Answer is D",
+        "a": "incorrect",
+        "b": "Incorrect",
+        "c": "Incorrect",
+        "d": "Correct",
+        "e": "Incorrect",
+        "answer": "Correct"
+    },
+    {
+        "id":10,
+        "question": "Which of these is not a wild animal ?",
+        "a": "Goat",
+        "b": "Lion",
+        "c": "Bear",
+        "d": "Leopard",
+        "e": "Tiger",
+        "answer": "Goat"
+    },
+    {
+        "id": 11,
+        "question": "Which of these is a fruit ?",
+        "a": "Apple Cidar",
+        "b": "Egg",
+        "c": "Yam",
+        "d": "Orange",
+        "e": "Fish",
+        "answer": "Orange"
+    },
+    {
+        "id": 12,
+        "question": "The Correct Answer is D",
+        "a": "incorrect",
+        "b": "Incorrect",
+        "c": "Incorrect",
+        "d": "Correct",
+        "e": "Incorrect",
+        "answer": "Correct"
+    },
+ {
+        "id": 13,
+        "question": "Which of these is a fruit ?",
+        "a": "Apple Cidar",
+        "b": "Egg",
+        "c": "Yam",
+        "d": "Orange",
+        "e": "Fish",
+        "answer": "Orange"
+    },
+    {
+        "id": 14,
+        "question": "The Correct Answer is D",
+        "a": "incorrect",
+        "b": "Incorrect",
+        "c": "Incorrect",
+        "d": "Correct",
+        "e": "Incorrect",
+        "answer": "Correct"
+    }
+]

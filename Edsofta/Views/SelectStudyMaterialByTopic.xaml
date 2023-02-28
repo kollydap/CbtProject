@@ -1,0 +1,199 @@
+﻿<Window x:Class="Edsofta.Views.SelectStudyMaterialByTopic"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Edsofta.Views"
+        mc:Ignorable="d"
+        Title="SelectStudyMaterialByTopic" Height="1337" Width="1440" Background="#fff" MinWidth="620" WindowState="Maximized" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+     
+        <ScrollViewer Grid.RowSpan="2" Width="269" VerticalScrollBarVisibility="Hidden" VerticalAlignment="Top" Background="#F6F9FF" HorizontalAlignment="Left" HorizontalContentAlignment="Center">
+            <StackPanel Height="829"  >
+                <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 76 0 52" >
+                    <Image Source="/Images/edsofta logo.png" />
+                </StackPanel>
+                <StackPanel Width="215" Margin=" 0 0 0 27" Height="112" Background="Transparent">
+                    <Border CornerRadius="10" Background="#fff">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="18 8 0 0">
+                                <TextBlock FontSize="16"  FontFamily="Nunito" Text="Current User"  />
+                                <Image Source="/Images/bell.png" Margin="56 0 0 0" />
+
+                            </StackPanel>
+                            <StackPanel  Margin="17 10 0 4" Orientation="Horizontal" >
+                                <Ellipse  Width="61" Height="61" Fill="#F6F9FF" />
+                                <StackPanel  Width="155" Margin="-33 0 0 0" Background="#F6F9FF" Height="32">
+                                    <TextBlock Text="Joseph" FontSize="16" LineHeight="18" Margin="0 4 0 0" VerticalAlignment="Center" HorizontalAlignment="Center"  />
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+
+                <Border CornerRadius="10 10 30 0" Background="#fff" Height="215" Width="215" Margin="0 0 0 18">
+                    <StackPanel>
+                        <Button Height="50" Content="Home" Background="#3C6EED" Foreground="#fff" BorderThickness="0" />
+
+
+                        <Button Height="50"  Background="#FFFFFF" Foreground="#B0B7C2" BorderThickness="0" >
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Images/newspaper.png" Width="11" Height="14" />
+                                <Label Content="Notes" FontSize="16" Foreground="#B0B7C2"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Height="50"  Background="#FFFFFF" Foreground="#B0B7C2" BorderThickness="0" >
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Images/newspaper.png" Width="11" Height="14" />
+                                <Label Content="News" FontSize="16" Foreground="#B0B7C2"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Height="50" Width="100" Background="#FFFFFF" Foreground="#B0B7C2" BorderThickness="0" >
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Images/cog.png" Width="11" Height="14" />
+                                <Label Content="Settings" FontSize="16" Foreground="#B0B7C2"/>
+                            </StackPanel>
+                        </Button>
+
+
+                    </StackPanel>
+                </Border>
+                <StackPanel  Margin="0 0 0 151" Width="192" Height="62" Background="#F8F9F8" Orientation="Horizontal">
+                    <Image Source="/Images/addicon.png" Width="32" Height="32" Margin="15 0" />
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock Text="Add User" FontSize="12"/>
+                        <TextBlock Text="4 Users Added" />
+
+                    </StackPanel>
+
+                </StackPanel>
+                <Button Height="50" Content="Logout"  FontSize="18" Foreground="#D5011D" Width="215" BorderBrush="#D5011D" BorderThickness="1" Background="#F7F9FF" />
+            </StackPanel>
+        </ScrollViewer>
+    
+        <ScrollViewer Grid.ColumnSpan="2" Grid.RowSpan="2"  Margin="269 0 0 0">
+            <StackPanel>
+                <StackPanel>
+                    <TextBlock Text="Study By Subject" Margin="55 76 0 0" FontSize="24" LineHeight="32" FontFamily="Nunito"/>
+                    <TextBlock FontFamily="Nunito" FontSize="18" LineHeight="26" Margin="55 20 0 24" Text="Select practice subjects" TextWrapping="Wrap"/>
+
+
+                    <WrapPanel Margin="0 0 0 0" HorizontalAlignment="Left" Orientation="Horizontal">
+
+
+                        <StackPanel>
+                            <Border Margin="35 24 35 0" CornerRadius="10" Width="248" Height="129" Background="#F7F9FF" >
+                                <StackPanel >
+                                    <TextBlock  FontFamily="Nunito" Text="Biology" Margin="0 15 0 45" FontSize="18" LineHeight="26" HorizontalAlignment="Center" />
+                                    <Button Content="Study" Click="SelectBiology"  Foreground="#fff" FontSize="12" FontFamily="Nunito" Margin="0 0 0 15" Width="80" Height="28" Background="#3C6EED" BorderThickness="0"  />
+                                </StackPanel>
+                            </Border>
+                            
+                        </StackPanel>
+
+
+                        <StackPanel>
+                            <Border Margin="35 24 35 0" CornerRadius="10" Width="248" Height="129" Background="#F7F9FF" >
+                                <StackPanel >
+                                    <TextBlock  FontFamily="Nunito" Text="Government" Margin="0 15 0 45" FontSize="18" LineHeight="26" HorizontalAlignment="Center" />
+                                    <Button Content="Take Test"  Click="SelectGovernment" Foreground="#fff" FontSize="12" FontFamily="Nunito" Margin="0 0 0 15" Width="80" Height="28" Background="#3C6EED" BorderThickness="0" />
+                                </StackPanel>
+                            </Border>
+          
+                        </StackPanel>
+
+
+                        <StackPanel>
+                            <Border Margin="35 24 35 0" CornerRadius="10" Width="248" Height="129" Background="#F7F9FF" >
+                                <StackPanel >
+                                    <TextBlock  FontFamily="Nunito" Text="English" Margin="0 15 0 45" FontSize="18" LineHeight="26" HorizontalAlignment="Center" />
+                                    <Button Content="Take Test"  Foreground="#fff" FontSize="12" FontFamily="Nunito" Margin="0 0 0 15" Width="80" Height="28" Background="#3C6EED" BorderThickness="0" />
+                                </StackPanel>
+                            </Border>
+                            <Border Width="248" Height="162" Background="#BECFF9" CornerRadius="10" x:Name="dropPanel3" Visibility="Collapsed">
+                                <StackPanel  >
+                                    <StackPanel Width="99"  Margin="0 32 0 21" Height="36" Background="#F6F9FF"></StackPanel>
+                                    <StackPanel Width="99" Height="36" Background="#F6F9FF"></StackPanel>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                        <StackPanel>
+                            <Border Margin="35 24 35 0" CornerRadius="10" Width="248" Height="129" Background="#F7F9FF" >
+                                <StackPanel >
+                                    <TextBlock  FontFamily="Nunito" Text="English" Margin="0 15 0 45" FontSize="18" LineHeight="26" HorizontalAlignment="Center" />
+                                    <Button Content="Take Test"  Foreground="#fff" FontSize="12" FontFamily="Nunito" Margin="0 0 0 15" Width="80" Height="28" Background="#3C6EED" BorderThickness="0" />
+                                </StackPanel>
+                            </Border>
+                            <Border Width="248" Height="162" Background="#BECFF9" CornerRadius="10" x:Name="dropPanel4" Visibility="Collapsed">
+                                <StackPanel  >
+                                    <StackPanel Width="99"  Margin="0 32 0 21" Height="36" Background="#F6F9FF"></StackPanel>
+                                    <StackPanel Width="99" Height="36" Background="#F6F9FF"></StackPanel>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                        <StackPanel>
+                            <Border Margin="35 24 35 0" CornerRadius="10" Width="248" Height="129" Background="#F7F9FF" >
+                                <StackPanel >
+                                    <TextBlock  FontFamily="Nunito" Text="English" Margin="0 15 0 45" FontSize="18" LineHeight="26" HorizontalAlignment="Center" />
+                                    <Button Content="Take Test"  Foreground="#fff" FontSize="12" FontFamily="Nunito" Margin="0 0 0 15" Width="80" Height="28" Background="#3C6EED" BorderThickness="0"/>
+                                </StackPanel>
+                            </Border>
+                            <Border Width="248" Height="162" Background="#BECFF9" CornerRadius="10" x:Name="dropPanel5" Visibility="Collapsed">
+                                <StackPanel  >
+                                    <StackPanel Width="99"  Margin="0 32 0 21" Height="36" Background="#F6F9FF"></StackPanel>
+                                    <StackPanel Width="99" Height="36" Background="#F6F9FF"></StackPanel>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+
+                        <StackPanel>
+                            <Border Margin="35 24 35 0" CornerRadius="10" Width="248" Height="129" Background="#F7F9FF" >
+                                <StackPanel  >
+                                    <TextBlock  FontFamily="Nunito" Text="English" Margin="0 15 0 45" FontSize="18" LineHeight="26" HorizontalAlignment="Center" />
+                                    <Button Content="Take Test"  Foreground="#fff" FontSize="12" FontFamily="Nunito" Margin="0 0 0 15" Width="80" Height="28" Background="#3C6EED" BorderThickness="0"/>
+                                </StackPanel>
+                            </Border>
+                            <Border Width="248" Height="162" Background="#BECFF9" CornerRadius="10" x:Name="dropPanel6" Visibility="Collapsed">
+                                <StackPanel  >
+                                    <StackPanel Width="99"  Margin="0 32 0 21" Height="36" Background="#F6F9FF"></StackPanel>
+                                    <StackPanel Width="99" Height="36" Background="#F6F9FF"></StackPanel>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+
+                        <StackPanel>
+                            <Border Margin="35 24 35 0" CornerRadius="10" Width="248" Height="129" Background="#F7F9FF" >
+                                <StackPanel>
+                                    <TextBlock  FontFamily="Nunito" Text="English" Margin="0 15 0 45" FontSize="18" LineHeight="26" HorizontalAlignment="Center" />
+                                    <Button Content="Take Test"  Foreground="#fff" FontSize="12" FontFamily="Nunito" Margin="0 0 0 15" Width="80" Height="28" Background="#3C6EED" BorderThickness="0"/>
+                                </StackPanel>
+                            </Border>
+                            <Border Width="248" Height="162" Background="#BECFF9" CornerRadius="10" x:Name="dropPanel7" Visibility="Collapsed">
+                                <StackPanel>
+                                    <StackPanel Width="99"  Margin="0 32 0 21" Height="36" Background="#F6F9FF"></StackPanel>
+                                    <StackPanel Width="99" Height="36" Background="#F6F9FF"></StackPanel>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+
+                    </WrapPanel>
+                    <Button Background="#3C6EED" Content="Get Started" Foreground="#fff" FontFamily="Nunito" FontSize="18" Width="327" BorderThickness="0" Height="45" Margin="0 40 0 20" />
+
+                </StackPanel>
+
+            </StackPanel>
+        </ScrollViewer>
+
+
+
+
+    </Grid>
+</Window>

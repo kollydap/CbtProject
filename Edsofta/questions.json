@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "question": "Which of these is not a wild animal ?",
+        "a": "Goat",
+        "b": "Lion",
+        "c": "Bear",
+        "d": "Leopard",
+        "e": "Tiger",
+        "answer": "a"
+    },
+    {
+        "id": 2,
+        "question": "Which of these is a fruit ?",
+        "a": "Apple Cidar",
+        "b": "Egg",
+        "c": "Yam",
+        "d": "Orange",
+        "e": "Fish",
+        "answer": "d"
+    },
+    {
+        "id": 3,
+        "question": "The Correct Answer is D",
+        "a": "incorrect",
+        "b": "Incorrect",
+        "c": "Incorrect",
+        "d": "Correct",
+        "e": "Incorrect",
+        "answer": "d"
+    }
+]

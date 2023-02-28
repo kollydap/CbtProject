@@ -1,0 +1,377 @@
+﻿<Window x:Class="Edsofta.EdsoftaDesktop"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Edsofta"
+        mc:Ignorable="d" Icon="/Images/edsofta logo.png"
+         xmlns:ViewModels="clr-namespace:Edsofta.ViewModels.UsersVM"
+         Title="EdsoftaSignUp" Height="1024" Width="1440" Background="#fff" MinWidth="550"  WindowState="Maximized" WindowStartupLocation="CenterScreen" >
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border"  Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="LogoutButton" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="9" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ViewResultHistoryButton" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="PracticeExamButton" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="0 0 10 10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="HomeButton" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="9"  BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+    </Window.Resources>
+
+    <Window.DataContext>
+        <ViewModels:UserDesktopVM/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <!--Left Side -->
+        <ScrollViewer Grid.RowSpan="2" Width="269" VerticalScrollBarVisibility="Hidden" VerticalAlignment="Top" Background="#F6F9FF" HorizontalAlignment="Left" HorizontalContentAlignment="Center">
+            <StackPanel Height="829"  >
+                <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 76 0 52" >
+                    <Image Source="/Images/edsofta logo.png" />
+                </StackPanel>
+                <StackPanel Width="215" Margin=" 0 0 0 27" Height="112" Background="Transparent">
+                    <Border CornerRadius="10" Background="#fff">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="18 8 0 0">
+                                <TextBlock FontSize="16"  FontFamily="Nunito" Text="Current User"  />
+                                <Image Source="/Images/bell.png" Margin="56 0 0 0" />
+
+                            </StackPanel>
+                            <StackPanel  Margin="17 10 0 4" Orientation="Horizontal" >
+                                <Ellipse  Width="61" Height="61" Fill="#F6F9FF" />
+                                <StackPanel  Width="155" Margin="-33 0 0 0" Background="#F6F9FF" Height="32">
+                                    <TextBlock Text="{Binding CurrentUser.UserName}" FontSize="16" LineHeight="18" Margin="0 4 0 0" VerticalAlignment="Center" HorizontalAlignment="Center"  />
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+                <Border CornerRadius="10 10 30 0" Background="#fff" Height="215" Width="215" Margin="0 0 0 18">
+                    <StackPanel>
+                        <Button Height="50" Content="Home" Background="#3C6EED" Foreground="#fff" BorderThickness="0" />
+
+
+                        <Button Height="50" Click="OpenNotes" Background="#FFFFFF" Foreground="#B0B7C2" BorderThickness="0" >
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Images/newspaper.png" Width="11" Height="14" />
+                                <Label Content="Notes" FontSize="16" Foreground="#B0B7C2"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Height="50"  Background="#FFFFFF" Foreground="#B0B7C2" BorderThickness="0" >
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Images/newspaper.png" Width="11" Height="14" />
+                                <Label Content="News" FontSize="16" Foreground="#B0B7C2"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Height="50" Width="100" Click="OpenSettingsWindow" Background="#FFFFFF" Foreground="#B0B7C2" BorderThickness="0" >
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Images/cog.png" Width="11" Height="14" />
+                                <Label Content="Settings" FontSize="16" Foreground="#B0B7C2"/>
+                            </StackPanel>
+                        </Button>
+
+
+                    </StackPanel>
+                </Border>
+                <StackPanel  Margin="0 0 0 151" Width="192" Height="62" Background="#F8F9F8" Orientation="Horizontal">
+                    <Image Source="/Images/addicon.png" Width="32" Height="32" Margin="15 0" />
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock Text="Add User" FontSize="12"/>
+                        <TextBlock Text="4 Users Added" />
+
+                    </StackPanel>
+
+                </StackPanel>
+                <Button Height="50" Content="Logout"  FontSize="18" Foreground="#D5011D" Width="215" BorderBrush="#D5011D" BorderThickness="1" Background="#F7F9FF" Style="{DynamicResource LogoutButton}"/>
+            </StackPanel>
+        </ScrollViewer>
+        <!--Left side-->
+        <!--Right Side-->
+        <ScrollViewer  HorizontalScrollBarVisibility="Hidden" Margin="269 0 0 0"  Grid.ColumnSpan="2" Grid.RowSpan="2" >
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Welcome Back " Margin="55 76 0 76" FontSize="24" LineHeight="32" FontFamily="Nunito"/>
+                    <TextBlock Name="FF" Text="{Binding Path=CurrentUser.UserName}" Margin="0 76 0 76" FontSize="24" LineHeight="32" FontFamily="Nunito"/>
+                </StackPanel>
+                
+
+                <StackPanel Orientation="Horizontal">
+                    <Border CornerRadius="10" Background="#1E3777" Margin="55 0 0 46" HorizontalAlignment="Left"  Width="650" Height="185">
+                    <StackPanel  >
+
+                        <TextBlock Text="News letter" FontSize="24" FontFamily="Nunito" LineHeight="32" Foreground="#fff" Margin="62 27 0 0"/>
+                        <TextBlock Margin="62 18 100 27" TextWrapping="Wrap" FontFamily="Nunito" FontSize="18" LineHeight="26" Foreground="#fff" Text="Lörem ipsum oledes pede. Krojadade ADV kontragam spek. Utsmarta buvis. Kontracentrism pseudon, hexagt i dis. Trabepp ser vina deskapet så parav."/>
+                    </StackPanel>
+                    </Border>
+                    <StackPanel Margin="53 0 0 0">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal"> 
+                                <Image Source="/Images/Vector.png" Margin="0 0 12 0" />
+                                <TextBlock  Text="Result History"/>
+                                
+                            </StackPanel>
+                            
+                            <Image Source="/Images/Result History.png" />
+
+                        </StackPanel>
+                        <TextBlock Margin="0 0 0 5" Text="Latest Test Report" FontSize="18" LineHeight="26" FontFamily="Nunito"/>
+                        <TextBlock  Margin="0 0 0 5" Text="You scored a total of 233/400 in CRK" LineHeight="26" FontFamily="Nunito"/>
+                        <TextBlock  Margin="0 0 0 16" Text="6 days ago, 4;38pm" FontSize="16" LineHeight="20" FontFamily="Nunito"/>
+                        <Button Width="240" Foreground="#fff" FontSize="18" FontFamily="Nunito" Content="View Result History" Height="50" BorderThickness="0" Background="#3C6EED" Style="{DynamicResource ViewResultHistoryButton}" />
+
+                    </StackPanel>
+                </StackPanel>
+
+                <!--Offline Features-->
+                <StackPanel Margin="55 0 0 20" Orientation="Horizontal" >
+                    <Image Source="/Images/offline.png" Margin="0 0 13 0" />
+                    <TextBlock Text="Offline features"  FontSize="24" FontFamily="Nunito" LineHeight="32" />
+                </StackPanel >
+
+                <WrapPanel Margin="55 0 0 0" Orientation="Horizontal">
+                    <!-- Individual Stack -->
+                    <StackPanel Width="200" Margin="0 0 20 0" HorizontalAlignment="Left">
+                        <StackPanel Width="200"  HorizontalAlignment="Left" Background="#F6F9FF" Height="139">
+                            <Image Source="/Images/Practice exam.png" Height="78" Width="78"  Margin="0 30" />
+                        </StackPanel>
+                        <Button Margin="0 -16 0 0" Height="56" BorderThickness="0" FontSize="14" Background="#3C6EED" Content="Practice Exam" Click="Button_Click" Foreground="#fff" Style="{DynamicResource PracticeExamButton}"  />
+                    </StackPanel>
+                    <!-- Individual Stack -->
+                    <StackPanel Width="200" Margin="0 0 20 0" HorizontalAlignment="Left">
+                        <StackPanel Width="200"  HorizontalAlignment="Left" Background="#F6F9FF" Height="139">
+                            <Image Source="/Images/search for tutor.png" Height="78" Width="78"  Margin="0 30"/>
+                        </StackPanel>
+
+                        <Button Click="OpenMaterial" Margin="0 -16 0 0" Height="56" BorderThickness="0" FontSize="14" Background="#3C6EED"  Foreground="#fff"   Style="{DynamicResource PracticeExamButton}">
+                            <TextBlock Text="Read/Listen to
+Study Materials" TextAlignment="Center" TextWrapping="Wrap" Width="103"/>
+                        </Button>
+                    </StackPanel>
+                    <!-- Individual Stack -->
+                    <StackPanel Width="200" Margin="0 0 20 0" HorizontalAlignment="Left">
+                        <StackPanel Width="200"  HorizontalAlignment="Left" Background="#F6F9FF" Height="139">
+                            <Image Source="/Images/Play game.png" Height="78" Width="78"  Margin="0 30" />
+                        </StackPanel>
+                        <Button Margin="0 -16 0 0" Height="56" BorderThickness="0" FontSize="14" Background="#3C6EED" Content="Play Games" Foreground="#fff" Style="{DynamicResource PracticeExamButton}" />
+                    </StackPanel>
+                    <!-- Individual Stack -->
+                    <StackPanel Width="200" Margin="0 0 20 0" HorizontalAlignment="Left">
+                        <StackPanel Width="200"  HorizontalAlignment="Left" Background="#F6F9FF" Height="139">
+                            <Image Source="/Images/saved questions.png" Height="78" Width="78"  Margin="0 30"/>
+                        </StackPanel>
+                        <Button Margin="0 -16 0 0" Height="56" BorderThickness="0" FontSize="14" Background="#3C6EED" Content="Saved Questions" Foreground="#fff" Style="{DynamicResource PracticeExamButton}" />
+                    </StackPanel>
+                    <!-- Individual Stack -->
+
+                </WrapPanel>
+                <StackPanel Margin="55 50 0 20"  Orientation="Horizontal">
+                    <Image Source="/Images/online.png" Margin="0 0 13 0"  />
+                    <TextBlock Text="Online features"  FontSize="24" FontFamily="Nunito" LineHeight="32" />
+                </StackPanel>
+
+
+                <WrapPanel Margin="55 0 0 70" Orientation="Horizontal" >
+
+                    <!-- Individual Stack -->
+                    <StackPanel Width="200" Margin="0 0 20 0" HorizontalAlignment="Left">
+                        <StackPanel Width="200"  HorizontalAlignment="Left" Background="#F6F9FF" Height="139">
+                            <Image Source="/Images/search for tutor.png" Height="78" Width="78"  Margin="0 30"/>
+
+                        </StackPanel>
+                        <Button Margin="0 -16 0 0" Height="56" BorderThickness="0" FontSize="14" Background="#3C6EED" Content="Search For Tutor" Foreground="#fff" Style="{DynamicResource PracticeExamButton}"  />
+                    </StackPanel>
+                    <!-- Individual Stack -->
+                    <StackPanel Width="200" Margin="0 0 20 0" HorizontalAlignment="Left">
+                        <StackPanel Width="200"  HorizontalAlignment="Left" Background="#F6F9FF" Height="139">
+                            <Image Source="/Images/Join forum.png" Height="78" Width="78"  Margin="0 30"/>
+                        </StackPanel>
+                        <Button Margin="0 -16 0 0" Height="56" BorderThickness="0" FontSize="14" Background="#3C6EED" Content="Join Forum" Foreground="#fff" Style="{DynamicResource PracticeExamButton}" />
+                    </StackPanel>
+                    <!-- Individual Stack -->
+                    <StackPanel Width="200" Margin="0 0 20 0" HorizontalAlignment="Left">
+                        <StackPanel Width="200"  HorizontalAlignment="Left" Background="#F6F9FF" Height="139">
+                            <Image Source="/Images/see learning  recommendation.png" Height="78" Width="78"  Margin="0 30"/>
+
+                        </StackPanel>
+                        <Button Margin="0 -16 0 0" Height="56" BorderThickness="0" FontSize="14" Background="#3C6EED"  Foreground="#fff" Style="{DynamicResource PracticeExamButton}" >
+                            <TextBlock Text="See Learning
+Recommendations" TextWrapping="Wrap" Width="121" TextAlignment="Center"/>
+                        </Button>
+                    </StackPanel>
+                    <!-- Individual Stack -->
+
+                </WrapPanel>
+            </StackPanel>
+        </ScrollViewer>
+
+
+
+        <!--Right Side-->
+    </Grid>
+</Window>
